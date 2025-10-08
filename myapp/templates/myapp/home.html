@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <h1>EBENEZER LLC Law Firm</h1>
+        <p>Premier Legal Services in Nigeria</p>
+        <div class="datetime">
+            The current date and time is: {{ current_time|date:"F j, Y, g:i a" }}
+        </div>
+    </div>
+</section>
+
+<!-- Inventory Section -->
+<section class="content">
+    <div class="container">
+        <h2 class="section-title">Our Legal Offerings</h2>
+        <p class="inventory-count">There are {{ inventory_count }} items of inventory.</p>
+        
+        <div class="inventory">
+            {% for item in inventory_items %}
+            <div class="inventory-item item-{{ forloop.counter }}">
+                <div class="item-icon">
+                    <i class="{{ item.icon_class }}"></i>
+                </div>
+                <div class="item-content">
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.description }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="thank-you">
+            <p>Thank You For Visiting.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}
